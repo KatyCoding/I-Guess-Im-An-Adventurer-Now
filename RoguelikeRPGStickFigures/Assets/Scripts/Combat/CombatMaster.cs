@@ -1,27 +1,32 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class CombatMaster : MonoBehaviour
 {
-
+    public static CombatMaster instance;
     private int turnIndex = 0;
     private List<Combatant> CombatOrder = new List<Combatant>();
+    public Action<CombatantData> OnPlayerTurnStart;
     #region Unity Methods
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        List<Combatant> cs = new List<Combatant>();
-        for(int i = 0;i<6;i++)
-        {
-            cs.Add(new Combatant(new Stat(Random.Range(1,3)), new Stat(Random.Range(1, 3)),
-                new Stat(Random.Range(1, 3)), new Stat(Random.Range(1, 3)),new Stat(Random.Range(1, 3))));
-        }
-
-        EnterCombat(cs);
+        instance = this;
     }
     #endregion
 
-
+    public void Start()
+    {
+        List<Combatant> participants = new List<Combatant>();
+        var combatants = FindObjectsByType<CombatantBehavior>(FindObjectsSortMode.None).ToList();
+        foreach (var c in combatants)
+        {
+            participants.Add(c.combatant);
+        }
+        EnterCombat(participants);
+    }
     public void EnterCombat(List<Combatant> combatants)
     {
         foreach(var c in combatants)
@@ -33,16 +38,21 @@ public class CombatMaster : MonoBehaviour
         CombatOrder.AddRange(combatants);
         StartCombatTurn();
     }
-    
+    public void EndTurn()
+    {
+        turnIndex++;
+        StartCombatTurn();
+    }
     private void StartCombatTurn()
     {
         if (turnIndex > CombatOrder.Count - 1)
             turnIndex = 0;
         var currentCombatant = CombatOrder[turnIndex];
-        if (currentCombatant.AIControlled)
-            currentCombatant.StartTurnDecisionTree();
-        turnIndex++;
+        currentCombatant.StartTurn();
     }
-
-
+    
+    public static void PlayerTurnStart(CombatantData data )
+    {
+        instance.OnPlayerTurnStart.Invoke(data);
+    }
 }

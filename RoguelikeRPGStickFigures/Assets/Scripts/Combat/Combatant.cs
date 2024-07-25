@@ -30,19 +30,29 @@ public class Combatant : IDamageable
     public int InitiativeBonus = 0;
     public bool AIControlled = true;
     public CombatantData CombatData;
-    public Stat Constitution;
-    public Stat Strength;
-    public Stat Dexterity;
-    public Stat Arcana;
-    public Stat Charisma;
-    public int Health { get; protected set; }
-    [HideInInspector] public Stat MaxHealth; 
 
+    [HideInInspector] public Stat Constitution;
+    [HideInInspector] public Stat Strength;
+    [HideInInspector] public Stat Dexterity;
+    [HideInInspector] public Stat Arcana;
+    [HideInInspector] public Stat Charisma;
+    public int Health { get; protected set; }
+    [HideInInspector] public Stat MaxHealth;
+    public virtual void StartTurn()
+    {
+        if (AIControlled)
+            StartTurnDecisionTree();
+        else
+        {
+            CombatMaster.PlayerTurnStart(CombatData);
+            
+        }
+    }
     public virtual void StartTurnDecisionTree()
     {
         List<Stat> stats = new List<Stat> { Strength, Dexterity, Arcana, Charisma };
         stats.Sort((a, b) => { return b.Value.CompareTo(a.Value); });
-        if (stats[0] ==Strength)
+        if (stats[0] == Strength)
         {
             CombatData.GetAttackRandom(AttackDataScriptableObject.AttackModifierType.strength);
         }
@@ -65,5 +75,5 @@ public class Combatant : IDamageable
             Debug.Log(Name + " is dead.");
     }
 
-    
+
 }
