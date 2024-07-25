@@ -7,9 +7,9 @@ public class CharacterBase : MonoBehaviour
     private Vector2 velocity;
     void Start()
     {
-        PlayerController.onMoveLeft = OnMoveLeft;
-        PlayerController.onMoveRight = OnMoveRight;
-        PlayerController.onStopMoving = OnStopMoving; 
+        PlayerController.onMoveLeft += OnMoveLeft;
+        PlayerController.onMoveRight += OnMoveRight;
+        PlayerController.onStopMoving += OnStopMoving; 
     }
 
     // Update is called once per frame

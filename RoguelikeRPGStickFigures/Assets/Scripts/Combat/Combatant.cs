@@ -29,6 +29,7 @@ public class Combatant : IDamageable
     public int CurrentInitiative = 0;
     public int InitiativeBonus = 0;
     public bool AIControlled = true;
+    public CombatantData CombatData;
     public Stat Constitution;
     public Stat Strength;
     public Stat Dexterity;
@@ -43,7 +44,7 @@ public class Combatant : IDamageable
         stats.Sort((a, b) => { return b.Value.CompareTo(a.Value); });
         if (stats[0] ==Strength)
         {
-
+            CombatData.GetAttackRandom(AttackDataScriptableObject.AttackModifierType.strength);
         }
         else if (stats[0] == Dexterity)
         {

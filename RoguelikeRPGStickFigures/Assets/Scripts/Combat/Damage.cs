@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[System.Serializable]
 public class Damage : Stat
 {
     public Damage(int BaseValue) : base(BaseValue)

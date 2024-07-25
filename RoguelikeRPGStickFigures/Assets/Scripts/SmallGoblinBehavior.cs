@@ -10,14 +10,14 @@ public class SmallGoblinBehavior : MonoBehaviour
     {
         
     }
-    private float timer = 1;
+    private float timer = 2;
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
         if(timer < 0)
         {
-            timer = 1;
+            timer = 2;
             velocity = new Vector2(Random.Range(-1, 2), 0);
         }
         this.transform.position += new Vector3(velocity.x, velocity.y, 0) * Time.deltaTime;
