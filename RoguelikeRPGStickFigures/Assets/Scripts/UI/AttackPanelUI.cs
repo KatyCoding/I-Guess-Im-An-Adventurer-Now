@@ -13,7 +13,7 @@ public class AttackPanelUI : MonoBehaviour
         foreach (var attack in data.Attacks)
         {
             var button = Instantiate<Button>(ActionButtonRef, this.transform);
-            button.GetComponentInChildren<TMPro.TextMeshPro>().text = attack.name;
+            button.GetComponentInChildren<TMPro.TextMeshPro>().text = attack.data.name;
             button.gameObject.SetActive(true);
         }
     }

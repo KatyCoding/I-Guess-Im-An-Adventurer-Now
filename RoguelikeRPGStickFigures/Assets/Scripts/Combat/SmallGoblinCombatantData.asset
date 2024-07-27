@@ -33,4 +33,6 @@ MonoBehaviour:
     baseValue: 1
     statMods: []
   Attacks:
-  - {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
+  - data: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
+    AnimationParameter: UnarmedStrike
+    ParameterType: 0

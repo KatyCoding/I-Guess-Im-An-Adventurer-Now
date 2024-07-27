@@ -13,7 +13,7 @@ public class DiceRoller : MonoBehaviour
         D20 = 20,
 
     }
-    private void Start()
+    private void Awake()
     {
         Instance = this;
     }

@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6c58560a78ef7b50",
+            "id": "7f6b6a25c4e00580",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -17,20 +17,6 @@
                 "mode": "source",
                 "source": false
               }
-            }
-          }
-        ]
-      },
-      {
-        "id": "74e7a5d450b72c88",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "92b1dedb5ba9b7c7",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           }
         ]
@@ -45,6 +31,7 @@
       {
         "id": "18361d51835e049b",
         "type": "tabs",
+        "dimension": 75,
         "children": [
           {
             "id": "e788b4d2b788d0f0",
@@ -76,6 +63,21 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "5fcd5d9d6ccd0bff",
+        "type": "tabs",
+        "dimension": 25,
+        "children": [
+          {
+            "id": "6c58560a78ef7b50",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
               "state": {}
             }
           }
@@ -147,8 +149,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -160,9 +161,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6c58560a78ef7b50",
+  "active": "7f6b6a25c4e00580",
   "lastOpenFiles": [
+    "Combat and Character Abilities.md",
     "IGIAAN Notes.md",
+    "Combat and Abilities.md",
     "Welcome.md"
   ]
 }
