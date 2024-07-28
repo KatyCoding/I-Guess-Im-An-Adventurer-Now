@@ -872,7 +872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6199e1a3269d4b94ab9cafb21567f1f3, type: 3}
   m_Name: 
@@ -1756,6 +1756,7 @@ MonoBehaviour:
   TeamTwoThird:
     transform: {fileID: 523542891}
     occupied: 0
+  CameraFocus: {fileID: 1564645121}
 --- !u!4 &927999806
 Transform:
   m_ObjectHideFlags: 0
@@ -1772,6 +1773,7 @@ Transform:
   - {fileID: 1853763110}
   - {fileID: 1252472532}
   - {fileID: 1167221525}
+  - {fileID: 1564645121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1016393534
@@ -1893,8 +1895,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1896de506dd6bf74f8fbfa30d696b396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityTransform: {fileID: 502624793}
   animator: {fileID: 1057961935}
   spriteRenderer: {fileID: 1057961936}
+  combatantRef: {fileID: 1057961938}
 --- !u!95 &1057961935
 Animator:
   serializedVersion: 7
@@ -2005,28 +2009,28 @@ MonoBehaviour:
     Level: 1
     Team: 1
     CurrentInitiative: 0
-    InitiativeBonus: 0
+    InitiativeBonus: 25
     AIControlled: 1
     CombatData: {fileID: 11400000, guid: 231b64b7802b731409c1ac7ba1b86064, type: 2}
     Constitution:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 1
       statMods: []
     Strength:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 2
       statMods: []
     Dexterity:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 1
       statMods: []
     Arcana:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 1
       statMods: []
     Charisma:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 1
       statMods: []
     MaxHealth:
       ScriptableObjectOveride: {fileID: 0}
@@ -2864,6 +2868,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550284656}
   m_CullTransparentMesh: 1
+--- !u!1 &1564645120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564645121}
+  m_Layer: 0
+  m_Name: CamFocus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1564645121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564645120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 927999806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579454552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,23 +3330,23 @@ MonoBehaviour:
     CombatData: {fileID: 11400000, guid: 21a5127f9212b0a43aa45699ad6f557d, type: 2}
     Constitution:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 2
       statMods: []
     Strength:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 2
       statMods: []
     Dexterity:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 2
       statMods: []
     Arcana:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 2
       statMods: []
     Charisma:
       ScriptableObjectOveride: {fileID: 0}
-      baseValue: 0
+      baseValue: 2
       statMods: []
     MaxHealth:
       ScriptableObjectOveride: {fileID: 0}

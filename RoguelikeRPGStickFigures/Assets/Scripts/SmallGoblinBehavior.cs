@@ -6,10 +6,11 @@ public class SmallGoblinBehavior : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     private Vector2 velocity = new Vector2();
+    [SerializeField] private CombatantBehavior combatantRef;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        combatantRef.combatant.OnAttackTriggered += TriggerAttack;
     }
     private float timer = 2;
     // Update is called once per frame
@@ -47,4 +48,19 @@ public class SmallGoblinBehavior : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
+    public void TriggerAttack(CombatantData.AttackDataAnimOverrideWrapper attack)
+    {
+        switch(attack.ParameterType)
+            {
+            case CombatantData.AttackDataAnimOverrideWrapper.AnimationParameterType.TRIGGER:
+                animator.SetTrigger(attack.AnimationParameter);
+                break;
+            case CombatantData.AttackDataAnimOverrideWrapper.AnimationParameterType.BOOL:
+                animator.SetBool(attack.AnimationParameter, true);
+                break;
+        }
+        //var anim = animator.GetCurrentAnimatorStateInfo(0);
+
+    }
+
 }

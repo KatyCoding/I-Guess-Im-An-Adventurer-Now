@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7f6b6a25c4e00580",
+            "id": "6c58560a78ef7b50",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -31,7 +31,7 @@
       {
         "id": "18361d51835e049b",
         "type": "tabs",
-        "dimension": 75,
+        "dimension": 70.37572254335261,
         "children": [
           {
             "id": "e788b4d2b788d0f0",
@@ -69,12 +69,12 @@
         ]
       },
       {
-        "id": "5fcd5d9d6ccd0bff",
+        "id": "068501d476b9b42a",
         "type": "tabs",
-        "dimension": 25,
+        "dimension": 29.6242774566474,
         "children": [
           {
-            "id": "6c58560a78ef7b50",
+            "id": "92b1dedb5ba9b7c7",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -149,7 +149,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -161,11 +162,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7f6b6a25c4e00580",
+  "active": "6c58560a78ef7b50",
   "lastOpenFiles": [
-    "Combat and Character Abilities.md",
     "IGIAAN Notes.md",
-    "Combat and Abilities.md",
+    "Combat and Character Abilities.md",
     "Welcome.md"
   ]
 }
