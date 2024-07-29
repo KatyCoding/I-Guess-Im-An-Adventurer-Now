@@ -151,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -173,7 +173,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -195,7 +195,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -216,8 +216,8 @@ TextureImporter:
       name: BaseCharSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 96
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -238,8 +238,8 @@ TextureImporter:
       name: BaseCharSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -260,8 +260,8 @@ TextureImporter:
       name: BaseCharSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -282,8 +282,8 @@ TextureImporter:
       name: BaseCharSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -304,8 +304,8 @@ TextureImporter:
       name: BaseCharSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 96
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -318,6 +318,182 @@ TextureImporter:
       bones: []
       spriteID: 474aba51a211b59c0800000000000000
       internalID: -3937534576755497868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27f3f4c35710e54c9cd39d3b1309253
+      internalID: -1978509534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dffee8520969f49830abe61748be58
+      internalID: 390963100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af6adc38c29e0444be6633ed7198f3b
+      internalID: -703695973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b657bbddc5aad242acd39add2e83539
+      internalID: -1469686598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8e0585a35c7434495c91d415d23bc6
+      internalID: 877992100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b7f5591a06e114d89374a172850762
+      internalID: 1047203131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea4b8c683fd80e4996b13989b50866e
+      internalID: 2089706029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseCharSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05db0fe2e8dc68c4ead519d8096d1432
+      internalID: 1135190552
       vertices: []
       indices: 
       edges: []
@@ -338,12 +514,20 @@ TextureImporter:
     nameFileIdTable:
       BaseCharSpriteSheet_0: 5689068625985649859
       BaseCharSpriteSheet_1: -1512479046319566651
+      BaseCharSpriteSheet_10: -703695973
+      BaseCharSpriteSheet_11: -1469686598
+      BaseCharSpriteSheet_12: 877992100
+      BaseCharSpriteSheet_13: 1047203131
+      BaseCharSpriteSheet_14: 2089706029
+      BaseCharSpriteSheet_15: 1135190552
       BaseCharSpriteSheet_2: 7576108374332277245
       BaseCharSpriteSheet_3: 6711483888526331380
       BaseCharSpriteSheet_4: -1443665094739396788
       BaseCharSpriteSheet_5: -4442089190168772620
       BaseCharSpriteSheet_6: 2006286885968374567
       BaseCharSpriteSheet_7: -3937534576755497868
+      BaseCharSpriteSheet_8: -1978509534
+      BaseCharSpriteSheet_9: 390963100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

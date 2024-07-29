@@ -58,14 +58,14 @@ public class Combatant : IDamageable
     public Stat Charisma;
     public int Health { get; protected set; }
     [HideInInspector] public Stat MaxHealth;
-    public System.Action<CombatantData.AttackDataAnimOverrideWrapper> OnAttackTriggered;
+    public System.Action<AttackDataScriptableObject> OnAttackTriggered;
     public virtual void StartTurn()
     {
         if (AIControlled)
             StartTurnDecisionTree();
         else
         {
-            CombatMaster.PlayerTurnStart(CombatData);
+            CombatMaster.PlayerTurnStart(this);
 
         }
     }
@@ -94,13 +94,19 @@ public class Combatant : IDamageable
     }
     public virtual void TakeDamage(Damage dam)
     {
-        
-        Health -= dam.Value;
+        var val = dam.Value;
+        GlobalEvents.OnDamageTaken?.Invoke(val, EntityTransformRef.position);
+        Health -= val;
         if (Health <= 0)
             Debug.Log(Name + " is dead.");
     }
-
-    protected IEnumerator DoAttackSequence(CombatantData.AttackDataAnimOverrideWrapper Attack)
+    public void SelectAttack(AttackDataScriptableObject attackData)
+    {
+        //TODO: confirmation and display info about attack
+        //TODO: select target
+        CombatMaster.instance.StartCoroutine(DoAttackSequence(attackData));
+    }
+    protected IEnumerator DoAttackSequence(AttackDataScriptableObject Attack)
     {
         var positionCache = new Vector3(EntityTransformRef.position.x, EntityTransformRef.position.y, EntityTransformRef.position.z);
         Combatant target = ChooseTarget();
@@ -126,8 +132,8 @@ public class Combatant : IDamageable
             yield return null;
         }
         yield return new WaitForSeconds(.5f);
-        OnAttackTriggered.Invoke(Attack);
-        CombatMaster.instance.StartCoroutine(WaitForDamageTrigger(target, Attack.data.Damage));
+        OnAttackTriggered?.Invoke(Attack);
+        CombatMaster.instance.StartCoroutine(WaitForDamageTrigger(target, Attack.Damage));
         yield return new WaitForSeconds(2);
 
 
@@ -165,6 +171,7 @@ public class Combatant : IDamageable
     {
         yield return new WaitUntil(() => { return DamageTrigger; });
         target.TakeDamage(dam);
+        DamageTrigger = false;
 
     }
     public virtual void TriggerDamage()

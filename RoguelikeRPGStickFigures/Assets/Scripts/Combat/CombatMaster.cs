@@ -9,7 +9,7 @@ public class CombatMaster : MonoBehaviour
     public static CombatMaster instance;
     private int turnIndex = 0;
     private List<Combatant> CombatOrder = new List<Combatant>();
-    public Action<CombatantData> OnPlayerTurnStart;
+    public Action<Combatant> OnPlayerTurnStart;
     public bool IsInCombat { get; private set; }
     #region Unity Methods
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -85,10 +85,11 @@ public class CombatMaster : MonoBehaviour
         currentCombatant.StartTurn();
     }
 
-    public static void PlayerTurnStart(CombatantData data)
+    public static void PlayerTurnStart(Combatant data)
     {
         instance.OnPlayerTurnStart?.Invoke(data);
     }
+   
     public static List<Combatant> GetOpposingTeam(int team)
     {
         List<Combatant> otherTeam = new List<Combatant>();

@@ -12,27 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8fd456fd23b734983a8b4af6d416ad, type: 3}
   m_Name: PlayerCombatData
   m_EditorClassIdentifier: 
-  Strength:
-    ScriptableObjectOveride: {fileID: 0}
-    baseValue: 0
-    statMods: []
-  Dexterity:
-    ScriptableObjectOveride: {fileID: 0}
-    baseValue: 2
-    statMods: []
-  Arcana:
-    ScriptableObjectOveride: {fileID: 0}
-    baseValue: 2
-    statMods: []
-  Charisma:
-    ScriptableObjectOveride: {fileID: 0}
-    baseValue: 2
-    statMods: []
-  Constitution:
-    ScriptableObjectOveride: {fileID: 0}
-    baseValue: 2
-    statMods: []
-  Attacks:
+  AttackAnims:
   - data: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
     AnimationParameter: UnarmedStrike
     ParameterType: 1
+  Attacks:
+  - {fileID: 0}

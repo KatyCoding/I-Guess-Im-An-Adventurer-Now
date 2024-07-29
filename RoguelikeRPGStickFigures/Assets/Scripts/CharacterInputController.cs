@@ -8,7 +8,7 @@ public class CharacterInputController : MonoBehaviour
     public Action<float> onMoveRight;
     public Action<float> onMoveLeft;
     public Action onStopMoving;
-    [SerializeField] CharacterAnimationController animController;
+    [SerializeField] public CharacterAnimationController animController;
     private void Start()
     {
         move = InputSystem.actions.FindAction("Move");

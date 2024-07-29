@@ -48,15 +48,17 @@ public class SmallGoblinBehavior : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
-    public void TriggerAttack(CombatantData.AttackDataAnimOverrideWrapper attack)
+    public void TriggerAttack(AttackDataScriptableObject attack)
     {
-        switch(attack.ParameterType)
+
+        var animData = combatantRef.combatant.CombatData.GetAnimationInfo(attack);
+        switch(animData.ParameterType)
             {
             case CombatantData.AttackDataAnimOverrideWrapper.AnimationParameterType.TRIGGER:
-                animator.SetTrigger(attack.AnimationParameter);
+                animator.SetTrigger(animData.AnimationParameter);
                 break;
             case CombatantData.AttackDataAnimOverrideWrapper.AnimationParameterType.BOOL:
-                animator.SetBool(attack.AnimationParameter, true);
+                animator.SetBool(animData.AnimationParameter, true);
                 break;
         }
         //var anim = animator.GetCurrentAnimatorStateInfo(0);
