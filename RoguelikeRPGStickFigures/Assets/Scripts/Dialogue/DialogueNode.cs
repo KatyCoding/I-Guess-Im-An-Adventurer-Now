@@ -23,8 +23,11 @@ public class Transition
     public DialogueNode Next;
     public List<Func<bool>> Conditions = new List<Func<bool>>();
 }
-[CreateAssetMenu(fileName = "SpeakingNode", menuName = "Dialogue/Speaking Node")]
+
+
+/*[CreateAssetMenu(fileName = "SpeakingNode", menuName = "Dialogue/Speaking Node")]
 public class SpeakingNode : DialogueNode
 {
     public string Text;
 }
+*/
