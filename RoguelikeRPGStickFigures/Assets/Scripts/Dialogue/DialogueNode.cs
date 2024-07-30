@@ -1,27 +1,30 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using System;
 [Serializable]
-public abstract class DialogueNode
+[CreateAssetMenu(fileName = "DialogueNode", menuName = "Dialogue/Dialogue Node")]
+public class DialogueNode : ScriptableObject
 {
+    public string Text;
     public List<DialogueNode> BackLinks = new List<DialogueNode>();
-    public List<DialogueNode> ForwardLinks = new List<DialogueNode>();
+    public List<Transition> Transitions = new List<Transition>();
+    private void OnValidate()
+    {
+        foreach(var t in Transitions)
+        {
+            t.Next.BackLinks.Add(this);
+        }
+
+    }
 }
 [Serializable]
-public class BranchNode:DialogueNode
+public class Transition
 {
-
-    [Serializable]
-    public class Branch
-    {
-        public DialogueNode From;
-        public DialogueNode To;
-        public List<System.Func<bool>> Conditions = new List<System.Func<bool>>();
-    }
-    public List<Branch> Branches = new List<Branch>();
+    public DialogueNode Next;
+    public List<Func<bool>> Conditions = new List<Func<bool>>();
 }
-public class SpeakingNode:DialogueNode
+[CreateAssetMenu(fileName = "SpeakingNode", menuName = "Dialogue/Speaking Node")]
+public class SpeakingNode : DialogueNode
 {
     public string Text;
 }
