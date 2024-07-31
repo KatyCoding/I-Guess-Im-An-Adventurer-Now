@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: DialogueCondition
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCondition
+  First: {fileID: 0}
+  Second: {fileID: 0}

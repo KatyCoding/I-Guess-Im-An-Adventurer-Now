@@ -1,18 +1,20 @@
 using UnityEngine;
 using UnityEditor;
 using System.Reflection;
-using UnityEngine.UIElements;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine.WSA;
-using System.Linq;
-using Unity.VisualScripting.Antlr3.Runtime;
+[System.Serializable]
 [CustomEditor(typeof(DialogueCondition))]
 public class DialogueConditionEditor : Editor
 {
+    [SerializeField]
     Object first;
+    [SerializeField]
     Object second;
-
+    [SerializeField]
+    Object firstCache;
+    [SerializeField]
+    Object SecondCache;
     int firstIndex = 0;
     int firstIndexCache = 0;
     int secondIndex = 0;
@@ -24,11 +26,22 @@ public class DialogueConditionEditor : Editor
     {
 
     }
+    
+    
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        first = EditorGUILayout.ObjectField(first, typeof(Object), true);
-        second = EditorGUILayout.ObjectField(second, typeof(Object), true);
+        var dialogue = target as DialogueCondition;
+        first = EditorGUILayout.ObjectField(dialogue.First, typeof(Object), true);
+        second = EditorGUILayout.ObjectField(dialogue.Second, typeof(Object), true);
+        if(dialogue.First!=first||dialogue.Second!=second)
+        {
+            dialogue.First = first;
+            dialogue.Second = second;
+            EditorUtility.SetDirty(target);
+            Debug.Log("SetDirty");
+        }
+        
         if (GUILayout.Button("Reset"))
         {
             listedObjects.Clear();
@@ -46,9 +59,13 @@ public class DialogueConditionEditor : Editor
                 currentSelection = first;
                 currentPath = first.name;
             }
-            firstIndex = EditorGUILayout.Popup(firstIndex, BuildOptions(currentSelection, currentPath));
+            firstIndex = EditorGUILayout.Popup((currentPath == first.name)?0:1, BuildOptions(currentSelection, currentPath, (currentPath == first.name)?null:new string[1] {first.name}) );
+
             if (firstIndex < listedObjects.Count)
+            {
                 currentSelection = listedObjects[firstIndex];
+                currentPath = listedPaths[firstIndex];
+            }
             if (firstIndex != firstIndexCache)
             {
                 listedObjects.Clear();
@@ -63,12 +80,17 @@ public class DialogueConditionEditor : Editor
 
         }
 
-
+        serializedObject.ApplyModifiedProperties();
     }
 
-    string[] BuildOptions(object obj, string path)
+    
+    string[] BuildOptions(object obj, string path, string[] addons = null)
     {
         List<string> options = new List<string>();
+        if (addons != null)
+        {
+            options.AddRange(addons);
+        }
         options.Add(path);
         var type = obj.GetType();
         if (type == typeof(GameObject))
