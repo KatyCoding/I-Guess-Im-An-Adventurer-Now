@@ -47,7 +47,6 @@ public class CharacterBase : MonoBehaviour
                 break;
         }
         //var anim = animator.GetCurrentAnimatorStateInfo(0);
-
     }
 
 }
