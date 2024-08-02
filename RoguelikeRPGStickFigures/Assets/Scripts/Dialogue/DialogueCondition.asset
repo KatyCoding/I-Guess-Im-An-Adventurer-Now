@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d4fb5c6f89d96364ca0713ebd61e7ec3, type: 3}
   m_Name: DialogueCondition
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueCondition
-  First: {fileID: 0}
+  m_EditorClassIdentifier: 
+  First: {fileID: 11400000, guid: 1a75ff05ab5eeff42be554e0373064e7, type: 2}
   Second: {fileID: 0}

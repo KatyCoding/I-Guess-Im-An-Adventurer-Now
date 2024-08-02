@@ -23,13 +23,7 @@ public class Transition
     public DialogueNode Next;
     public List<Func<bool>> Conditions = new List<Func<bool>>();
 }
-[CreateAssetMenu(fileName = "DialogueCondition",menuName ="Dialogue/Condition")]
-public class DialogueCondition:ScriptableObject
-{
-    public UnityEngine.Object First;
-    public UnityEngine.Object Second;
-    
-}
+
 
 /*[CreateAssetMenu(fileName = "SpeakingNode", menuName = "Dialogue/Speaking Node")]
 public class SpeakingNode : DialogueNode
