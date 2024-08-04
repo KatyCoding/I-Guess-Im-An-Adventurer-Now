@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
@@ -12,7 +13,7 @@ public class Combatant : IDamageable
         Dexterity = dex;
         Arcana = arc;
         Charisma = cha;
-        MaxHealth = new Stat(Constitution.Value * 10);
+        MaxHealth = new Stat(Constitution.Value * 6);
         Health = MaxHealth.Value;
         Team = team;
         InitiativeBonus = initBonus;
@@ -25,7 +26,7 @@ public class Combatant : IDamageable
         Dexterity = c.Dexterity;
         Arcana = c.Arcana;
         Charisma = c.Charisma;
-        MaxHealth = new Stat(Constitution.Value * 10);
+        MaxHealth = new Stat(Constitution.Value * 6);
         Health = MaxHealth.Value;
         Team = c.Team;
         InitiativeBonus = c.InitiativeBonus;
@@ -50,7 +51,7 @@ public class Combatant : IDamageable
     public int InitiativeBonus = 0;
     public bool AIControlled = true;
     public CombatantData CombatData;
-
+    public Action<Combatant> OnDeath;
     public Stat Constitution;
     public Stat Strength;
     public Stat Dexterity;
@@ -92,14 +93,19 @@ public class Combatant : IDamageable
 
         }
     }
+
     public virtual void TakeDamage(Damage dam)
     {
         var val = dam.Value;
         GlobalEvents.OnDamageTaken?.Invoke(val, EntityTransformRef.position);
         Health -= val;
         if (Health <= 0)
+        {
+            OnDeath.Invoke(this);
             Debug.Log(Name + " is dead.");
+        }
     }
+
     public void SelectAttack(AttackDataScriptableObject attackData)
     {
         //TODO: confirmation and display info about attack

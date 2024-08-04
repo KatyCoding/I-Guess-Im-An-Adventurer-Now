@@ -10,6 +10,11 @@ public class CombatMaster : MonoBehaviour
     private int turnIndex = 0;
     private List<Combatant> CombatOrder = new List<Combatant>();
     public Action<Combatant> OnPlayerTurnStart;
+    private Vector3 playerPositionCache;
+
+    private Vector3 cameraPositionCache;
+    //todo not this
+    [SerializeField] private Transform TEMPPlayerRef;
     public bool IsInCombat { get; private set; }
     #region Unity Methods
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,19 +36,23 @@ public class CombatMaster : MonoBehaviour
     }
     public void EnterCombat(List<Combatant> combatants)
     {
+        
         IsInCombat = true;
         CombatOrder.Clear();
         foreach (var c in combatants)
         {
             var initiativeRoll = DiceRoller.Instance.RollD20();
             c.CurrentInitiative = initiativeRoll + c.InitiativeBonus;
+            c.OnDeath += OnCombantantDeath;
         }
         combatants.Sort((a, b) => { return b.CurrentInitiative.CompareTo(a.CurrentInitiative); });
         CombatOrder.AddRange(combatants);
-        ScreenFade.instance.FadeToColorAndBack(Color.black, 1, 1, () => { TransitionToCombatArena(); }, () => { CombatEntered(); });
+        ScreenFade.instance.FadeToColorAndBack(Color.black, 1, 1, TransitionToCombatArena, CombatEntered);
     }
     private void TransitionToCombatArena()
     {
+        playerPositionCache = TEMPPlayerRef.position;
+        
         foreach (var c in CombatOrder)
         {
             if (c.Team == 0)
@@ -65,12 +74,24 @@ public class CombatMaster : MonoBehaviour
 
             }
         }
+        cameraPositionCache = Camera.main.transform.position;
         Camera.main.transform.position =new Vector3(CombatArena.Instance.CameraFocus.position.x,CombatArena.Instance.CameraFocus.position.y,Camera.main.transform.position.z);
+    }
+
+    private void TransitionOutOfCombatArena()
+    {
+        TEMPPlayerRef.position = playerPositionCache;
+        Camera.main.transform.position = cameraPositionCache;
     }
     private void CombatEntered()
     {
         StartCombatTurn();
 
+    }
+
+    private void ExitCombat()
+    {
+        ScreenFade.instance.FadeToColorAndBack(Color.black,1,1,TransitionOutOfCombatArena);
     }
     public void EndTurn()
     {
@@ -101,5 +122,35 @@ public class CombatMaster : MonoBehaviour
             }
         }
         return otherTeam;
+    }
+
+    private void OnCombantantDeath(Combatant dead)
+    {
+    
+        if(CombatOrder.Contains(dead))
+            CombatOrder.Remove(dead);
+        int team1Count = 0;
+        int team2Count = 0;
+        foreach (var c in CombatOrder)
+        {
+            if(c.Team ==0)
+                team1Count++;
+            else
+                team2Count++;
+            
+        }
+
+        if (team1Count == 0)
+        {
+            Debug.Log("Enemy wins combat");
+            //combat lost
+            return;
+        }
+
+        if (team2Count == 0)
+        {
+            //combat won
+            ExitCombat();
+        }
     }
 }

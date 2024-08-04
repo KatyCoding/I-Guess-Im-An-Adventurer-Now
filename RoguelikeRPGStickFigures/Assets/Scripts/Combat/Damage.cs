@@ -11,9 +11,11 @@ public class Damage : Stat
     {
         Slashing,
         Piercing,
+        Bludgeoning,
         Fire,
         Ice,
         Poison,
     }
-    public DamageType TypeOfDamage {get; protected set;}
+
+    public DamageType TypeOfDamage;
 }
