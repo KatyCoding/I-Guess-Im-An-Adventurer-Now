@@ -18,6 +18,7 @@ public class CharacterInputController : MonoBehaviour
             onMoveLeft += animController.OnWalkLeft;
             onStopMoving += animController.OnStopMoving;
         }
+        
     }
     private void Update()
     {

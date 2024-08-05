@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using System.Runtime.Serialization;
+using System.Collections;
+using UnityEditor.SceneTemplate;
 
 public class CombatMaster : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CombatMaster : MonoBehaviour
 
     private Vector3 cameraPositionCache;
     //todo not this
-    [SerializeField] private Transform TEMPPlayerRef;
+    [SerializeField] private CombatantBehavior TEMPPlayerRef;
     public bool IsInCombat { get; private set; }
     #region Unity Methods
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,11 +33,12 @@ public class CombatMaster : MonoBehaviour
         {
             participants.Add(c.combatant);
         }
-        EnterCombat(participants);
+        //EnterCombat(participants);
     }
     public void EnterCombat(List<Combatant> combatants)
     {
-        
+        if (IsInCombat)
+            return;
         IsInCombat = true;
         CombatOrder.Clear();
         foreach (var c in combatants)
@@ -51,7 +53,7 @@ public class CombatMaster : MonoBehaviour
     }
     private void TransitionToCombatArena()
     {
-        playerPositionCache = TEMPPlayerRef.position;
+        playerPositionCache = TEMPPlayerRef.combatant.EntityTransformRef.position;
         
         foreach (var c in CombatOrder)
         {
@@ -78,9 +80,18 @@ public class CombatMaster : MonoBehaviour
         Camera.main.transform.position =new Vector3(CombatArena.Instance.CameraFocus.position.x,CombatArena.Instance.CameraFocus.position.y,Camera.main.transform.position.z);
     }
 
+    public static List<Combatant> GetPlayerTeam()
+    {
+        if (instance.TEMPPlayerRef == null)
+            return null;
+        List<Combatant> combatants = new List<Combatant>();
+        combatants.Add(instance.TEMPPlayerRef.combatant);
+        return combatants;
+    }
+
     private void TransitionOutOfCombatArena()
     {
-        TEMPPlayerRef.position = playerPositionCache;
+        TEMPPlayerRef.combatant.EntityTransformRef.position = playerPositionCache;
         Camera.main.transform.position = cameraPositionCache;
     }
     private void CombatEntered()
@@ -91,7 +102,15 @@ public class CombatMaster : MonoBehaviour
 
     private void ExitCombat()
     {
+        StartCoroutine(ExitCombatRoutine());
+    }
+
+    private IEnumerator ExitCombatRoutine()
+    {
+        yield return new WaitForSeconds(3);
         ScreenFade.instance.FadeToColorAndBack(Color.black,1,1,TransitionOutOfCombatArena);
+        IsInCombat = false;
+
     }
     public void EndTurn()
     {
@@ -149,6 +168,7 @@ public class CombatMaster : MonoBehaviour
 
         if (team2Count == 0)
         {
+            
             //combat won
             ExitCombat();
         }

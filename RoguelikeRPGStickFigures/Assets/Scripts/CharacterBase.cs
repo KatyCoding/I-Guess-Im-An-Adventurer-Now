@@ -13,12 +13,14 @@ public class CharacterBase : MonoBehaviour
         PlayerController.onMoveRight += OnMoveRight;
         PlayerController.onStopMoving += OnStopMoving;
         combatantRef.combatant.OnAttackTriggered += TriggerAttack;
+        combatantRef.combatant.OnDeath += (a) => { PlayerController.animController.TriggerDeath(); };
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(velocity.x,velocity.y,0) * Time.deltaTime * speedModifier;
+        combatantRef.combatant.EntityTransformRef.position += new Vector3(velocity.x,velocity.y,0) * Time.deltaTime * speedModifier;
     }
 
     void OnMoveRight(float val)

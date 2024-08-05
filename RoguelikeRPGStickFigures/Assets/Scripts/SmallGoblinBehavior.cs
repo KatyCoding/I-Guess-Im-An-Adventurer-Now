@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SmallGoblinBehavior : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class SmallGoblinBehavior : MonoBehaviour
     void Start()
     {
         combatantRef.combatant.OnAttackTriggered += TriggerAttack;
+        combatantRef.combatant.OnDeath += (a)=> {TriggerDeath();};
     }
     private float timer = 2;
     // Update is called once per frame
@@ -65,4 +69,23 @@ public class SmallGoblinBehavior : MonoBehaviour
 
     }
 
+    private void TriggerDeath()
+    {
+        animator.SetTrigger("Death");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hit");
+        //TODO add multiple combatants in some encounters
+        if (other.CompareTag("Player"))
+        {
+            List<Combatant> combatants = new List<Combatant>();
+            combatants.AddRange(CombatMaster.GetPlayerTeam());
+            combatants.Add(combatantRef.combatant);
+            CombatMaster.instance.EnterCombat(combatants);
+            
+        }
+        
+    }
 }

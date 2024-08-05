@@ -127,7 +127,7 @@ public class Combatant : IDamageable
         var distLeft = travelDist;
         while (distLeft.magnitude != 0)
         {
-            var travel = travelDist.normalized * Time.deltaTime * 3;
+            var travel = travelDist.normalized * (Time.deltaTime * 4);
             EntityTransformRef.position += travel;
             distLeft -= travel;
             if (distLeft.magnitude < .1f)
@@ -141,11 +141,9 @@ public class Combatant : IDamageable
         OnAttackTriggered?.Invoke(Attack);
         CombatMaster.instance.StartCoroutine(WaitForDamageTrigger(target, Attack.Damage));
         yield return new WaitForSeconds(2);
-
-
         while (EntityTransformRef.position != positionCache)
         {
-            EntityTransformRef.position -= travelDist.normalized * Time.deltaTime *3;
+            EntityTransformRef.position -= travelDist.normalized * (Time.deltaTime * 4);
             if ((EntityTransformRef.position - positionCache).magnitude < .1f)
                 EntityTransformRef.position = positionCache;
             yield return null;

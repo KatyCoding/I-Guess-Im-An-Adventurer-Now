@@ -139,7 +139,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -161,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -183,7 +183,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -205,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -226,8 +226,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -248,8 +248,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -270,8 +270,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -292,8 +292,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 96
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -314,8 +314,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 128
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -336,8 +336,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -358,8 +358,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -380,8 +380,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 96
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -402,8 +402,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 128
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -424,8 +424,8 @@ TextureImporter:
       name: SmallSpiderGoblinSpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -438,6 +438,138 @@ TextureImporter:
       bones: []
       spriteID: 7faef8970e8484440ac5a96b8119c158
       internalID: 1990454043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallSpiderGoblinSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff06e39d2a82aea40a00c1e87068b449
+      internalID: 363418142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallSpiderGoblinSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 249519988ecd66d4282e348b9a227764
+      internalID: 909527361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallSpiderGoblinSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dc7d86d02e4c846b3dc060168c41b1
+      internalID: -1560475510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallSpiderGoblinSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6ff6d9ed4e19242bf77ced67f50859
+      internalID: 290411043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallSpiderGoblinSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bcfd6585da1b864f80064e2f61956fe
+      internalID: -69853831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallSpiderGoblinSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c2b1200aeb8a24d8225143265f8fb5
+      internalID: 1849628142
       vertices: []
       indices: 
       edges: []
@@ -462,6 +594,12 @@ TextureImporter:
       SmallSpiderGoblinSpriteSheet_11: -1340463357
       SmallSpiderGoblinSpriteSheet_12: -1885652788
       SmallSpiderGoblinSpriteSheet_13: 1990454043
+      SmallSpiderGoblinSpriteSheet_14: 363418142
+      SmallSpiderGoblinSpriteSheet_15: 909527361
+      SmallSpiderGoblinSpriteSheet_16: -1560475510
+      SmallSpiderGoblinSpriteSheet_17: 290411043
+      SmallSpiderGoblinSpriteSheet_18: -69853831
+      SmallSpiderGoblinSpriteSheet_19: 1849628142
       SmallSpiderGoblinSpriteSheet_2: -6644510918520016080
       SmallSpiderGoblinSpriteSheet_3: 1360278598151309206
       SmallSpiderGoblinSpriteSheet_4: -1982998612

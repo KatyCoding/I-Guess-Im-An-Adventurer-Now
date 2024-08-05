@@ -42,4 +42,10 @@ public class CharacterAnimationController : MonoBehaviour
     {
         sprite.flipX = true;
     }
+
+    public void TriggerDeath()
+    {
+        CharacterAnimator.SetTrigger("Death");
+    }
+    
 }
