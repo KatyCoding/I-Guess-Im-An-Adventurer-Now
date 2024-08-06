@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8fd456fd23b734983a8b4af6d416ad, type: 3}
   m_Name: SmallGoblinCombatantData
   m_EditorClassIdentifier: 
-  AttackAnims:
-  - data: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
-    AnimationParameter: UnarmedStrike
-    ParameterType: 1
+  test:
+    data: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
+    AnimController: {fileID: 0}
   Attacks:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}

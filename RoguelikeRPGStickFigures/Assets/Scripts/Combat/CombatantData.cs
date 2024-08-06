@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.Animations;
+
 [CreateAssetMenu(fileName = "CombatantData", menuName = "Combatants/CombatantData")]
 public class CombatantData : ScriptableObject
 {
@@ -17,9 +19,13 @@ public class CombatantData : ScriptableObject
         }
 
         public AttackDataScriptableObject data;
-        public string AnimationParameter;
-        public AnimationParameterType ParameterType;
+        public AnimatorController AnimController;
+        public GameObject gameObject;
+        [HideInInspector] public AnimatorControllerParameter Parameter;
+        //public AnimationParameterType ParameterType;
     }
+
+    
     private void OnEnable()
     {
         attackAnimRef.Clear();
@@ -30,7 +36,10 @@ public class CombatantData : ScriptableObject
             Attacks.Add(a.data);
         }
     }
-    [SerializeField]protected List<AttackDataAnimOverrideWrapper> AttackAnims = new List<AttackDataAnimOverrideWrapper>();
+
+    //[SerializeField]
+    protected List<AttackDataAnimOverrideWrapper> AttackAnims = new List<AttackDataAnimOverrideWrapper>();
+    public AttackDataAnimOverrideWrapper test;
     [HideInInspector] public List<AttackDataScriptableObject> Attacks = new List<AttackDataScriptableObject>();
     private Dictionary<AttackDataScriptableObject, AttackDataAnimOverrideWrapper> attackAnimRef = new Dictionary<AttackDataScriptableObject, AttackDataAnimOverrideWrapper>();
     public AttackDataScriptableObject GetAttackRandom(AttackDataScriptableObject.AttackModifierType type)

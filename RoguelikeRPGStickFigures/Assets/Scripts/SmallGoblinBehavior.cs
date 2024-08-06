@@ -54,7 +54,7 @@ public class SmallGoblinBehavior : MonoBehaviour
     }
     public void TriggerAttack(AttackDataScriptableObject attack)
     {
-
+/*
         var animData = combatantRef.combatant.CombatData.GetAnimationInfo(attack);
         switch(animData.ParameterType)
             {
@@ -65,6 +65,7 @@ public class SmallGoblinBehavior : MonoBehaviour
                 animator.SetBool(animData.AnimationParameter, true);
                 break;
         }
+*/
         //var anim = animator.GetCurrentAnimatorStateInfo(0);
 
     }

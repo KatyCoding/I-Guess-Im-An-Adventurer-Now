@@ -38,6 +38,7 @@ public class CharacterBase : MonoBehaviour
     public void TriggerAttack(AttackDataScriptableObject attack)
     {
 
+        /*
         var animData = combatantRef.combatant.CombatData.GetAnimationInfo(attack);
         switch (animData.ParameterType)
         {
@@ -48,6 +49,7 @@ public class CharacterBase : MonoBehaviour
                 PlayerController.animController.CharacterAnimator.SetBool(animData.AnimationParameter, true);
                 break;
         }
+        */
         //var anim = animator.GetCurrentAnimatorStateInfo(0);
     }
 
