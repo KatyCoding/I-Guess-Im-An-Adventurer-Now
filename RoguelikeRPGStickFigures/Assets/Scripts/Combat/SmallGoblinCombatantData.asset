@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8fd456fd23b734983a8b4af6d416ad, type: 3}
   m_Name: SmallGoblinCombatantData
   m_EditorClassIdentifier: 
-  test:
-    data: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
-    AnimController: {fileID: 0}
+  AttackAnims:
+  - AttackData: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
+    AnimController: {fileID: 9100000, guid: c387535dd26367b428892c9df4d70629, type: 2}
+    parameterIndex: 1
   Attacks:
   - {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}

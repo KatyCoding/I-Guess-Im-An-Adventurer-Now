@@ -38,18 +38,18 @@ public class CharacterBase : MonoBehaviour
     public void TriggerAttack(AttackDataScriptableObject attack)
     {
 
-        /*
+        
         var animData = combatantRef.combatant.CombatData.GetAnimationInfo(attack);
-        switch (animData.ParameterType)
+        switch (animData.param.type)
         {
-            case CombatantData.AttackDataAnimOverrideWrapper.AnimationParameterType.TRIGGER:
-                PlayerController.animController.CharacterAnimator.SetTrigger(animData.AnimationParameter);
+            case AnimatorControllerParameterType.Trigger:
+                PlayerController.animController.CharacterAnimator.SetTrigger(animData.param.name);
                 break;
-            case CombatantData.AttackDataAnimOverrideWrapper.AnimationParameterType.BOOL:
-                PlayerController.animController.CharacterAnimator.SetBool(animData.AnimationParameter, true);
+            case AnimatorControllerParameterType.Bool:
+                PlayerController.animController.CharacterAnimator.SetBool(animData.param.name, true);
                 break;
         }
-        */
+        
         //var anim = animator.GetCurrentAnimatorStateInfo(0);
     }
 

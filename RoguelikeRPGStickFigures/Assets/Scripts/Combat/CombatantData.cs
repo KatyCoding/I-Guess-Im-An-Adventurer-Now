@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor.Animations;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "CombatantData", menuName = "Combatants/CombatantData")]
 public class CombatantData : ScriptableObject
@@ -10,21 +11,18 @@ public class CombatantData : ScriptableObject
     [System.Serializable]
     public class AttackDataAnimOverrideWrapper
     {
-        public enum AnimationParameterType
-        {
-            BOOL,
-            TRIGGER,
-            INT,
-            FLOAT
-        }
-
-        public AttackDataScriptableObject data;
+        public AttackDataScriptableObject AttackData;
         public AnimatorController AnimController;
-        public GameObject gameObject;
-        [HideInInspector] public AnimatorControllerParameter Parameter;
-        //public AnimationParameterType ParameterType;
-    }
+        public AnimatorControllerParameter param => AnimController?.parameters[parameterIndex];// => bs.param;
 
+        [SerializeField] private int parameterIndex =0;
+        //[SerializeField] private BullshitWrapper bs = new BullshitWrapper();
+    }
+    [System.Serializable]
+    public class BullshitWrapper
+    {
+        public AnimatorControllerParameter param = new AnimatorControllerParameter();
+    }
     
     private void OnEnable()
     {
@@ -32,14 +30,14 @@ public class CombatantData : ScriptableObject
         Attacks.Clear();
         foreach(var a in AttackAnims)
         {
-            attackAnimRef.Add(a.data, a);
-            Attacks.Add(a.data);
+            attackAnimRef.Add(a.AttackData, a);
+            Attacks.Add(a.AttackData);
         }
     }
 
-    //[SerializeField]
+    [SerializeField]
     protected List<AttackDataAnimOverrideWrapper> AttackAnims = new List<AttackDataAnimOverrideWrapper>();
-    public AttackDataAnimOverrideWrapper test;
+   // public AttackDataAnimOverrideWrapper test;
     [HideInInspector] public List<AttackDataScriptableObject> Attacks = new List<AttackDataScriptableObject>();
     private Dictionary<AttackDataScriptableObject, AttackDataAnimOverrideWrapper> attackAnimRef = new Dictionary<AttackDataScriptableObject, AttackDataAnimOverrideWrapper>();
     public AttackDataScriptableObject GetAttackRandom(AttackDataScriptableObject.AttackModifierType type)

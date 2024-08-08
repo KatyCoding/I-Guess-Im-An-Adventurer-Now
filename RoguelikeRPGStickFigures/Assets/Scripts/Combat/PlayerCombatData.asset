@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: PlayerCombatData
   m_EditorClassIdentifier: 
   AttackAnims:
-  - data: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
-    AnimationParameter: UnarmedStrike
-    ParameterType: 1
-  Attacks:
-  - {fileID: 0}
+  - AttackData: {fileID: 0}
+    AnimController: {fileID: 9100000, guid: 6d6aab895769c4a4b9bc756458cdd5d8, type: 2}
+    parameterIndex: 2
+  Attacks: []
