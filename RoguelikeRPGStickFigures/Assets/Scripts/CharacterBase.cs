@@ -35,7 +35,7 @@ public class CharacterBase : MonoBehaviour
     {
         velocity = Vector2.zero;
     }
-    public void TriggerAttack(AttackDataScriptableObject attack)
+    public void TriggerAttack(AttackDataScriptableObject attack,Combatant target)
     {
 
         

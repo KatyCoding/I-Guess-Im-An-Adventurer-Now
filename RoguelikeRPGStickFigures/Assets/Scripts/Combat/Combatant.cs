@@ -59,7 +59,7 @@ public class Combatant : IDamageable
     public Stat Charisma;
     public int Health { get; protected set; }
     [HideInInspector] public Stat MaxHealth;
-    public System.Action<AttackDataScriptableObject> OnAttackTriggered;
+    public System.Action<AttackDataScriptableObject,Combatant> OnAttackTriggered;
     public virtual void StartTurn()
     {
         if (AIControlled)
@@ -117,11 +117,13 @@ public class Combatant : IDamageable
         var positionCache = new Vector3(EntityTransformRef.position.x, EntityTransformRef.position.y, EntityTransformRef.position.z);
         Combatant target = ChooseTarget();
         //TODO: set position for ranged attack (walk forward a few steps and shoot projectile)
-
+        
         //walk up to do melee attack
-
+        
         var travelDist = (target.EntityTransformRef.position - EntityTransformRef.position);
         travelDist = travelDist - travelDist.normalized;
+        if (Attack.IsRangedAttack)
+            travelDist *= .3f;
         var targetPos = EntityTransformRef.position + travelDist;
         //TODO: make MoveTo method (in script that controls movement) with callback instead
         var distLeft = travelDist;
@@ -138,7 +140,7 @@ public class Combatant : IDamageable
             yield return null;
         }
         yield return new WaitForSeconds(.5f);
-        OnAttackTriggered?.Invoke(Attack);
+        OnAttackTriggered?.Invoke(Attack,target);
         CombatMaster.instance.StartCoroutine(WaitForDamageTrigger(target, Attack.Damage));
         yield return new WaitForSeconds(2);
         while (EntityTransformRef.position != positionCache)

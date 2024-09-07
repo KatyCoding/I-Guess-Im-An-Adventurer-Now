@@ -52,7 +52,7 @@ public class SmallGoblinBehavior : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
-    public void TriggerAttack(AttackDataScriptableObject attack)
+    public void TriggerAttack(AttackDataScriptableObject attack,Combatant target)
     {
 
         var animData = combatantRef.combatant.CombatData.GetAnimationInfo(attack);

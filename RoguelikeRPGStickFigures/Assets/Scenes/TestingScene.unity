@@ -2019,13 +2019,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd2236feb90aea4fb32b0935bd4758c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileSpawnPoint: {fileID: 0}
   combatant:
     EntityTransformRef: {fileID: 502624793}
     Name: Spider Goblin
     Level: 1
     Team: 1
     CurrentInitiative: 0
-    InitiativeBonus: 25
+    InitiativeBonus: 1
     AIControlled: 1
     CombatData: {fileID: 11400000, guid: 231b64b7802b731409c1ac7ba1b86064, type: 2}
     Constitution:
@@ -2562,6 +2563,37 @@ Transform:
   - {fileID: 28794569}
   - {fileID: 2132256062}
   m_Father: {fileID: 927999806}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1358275084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358275085}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358275085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358275084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891152821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358750289
 GameObject:
@@ -3463,6 +3495,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 522232214}
+  - {fileID: 1358275085}
   m_Father: {fileID: 1984844061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1891152822
@@ -3521,6 +3554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd2236feb90aea4fb32b0935bd4758c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileSpawnPoint: {fileID: 1358275085}
   combatant:
     EntityTransformRef: {fileID: 1984844061}
     Name: Player

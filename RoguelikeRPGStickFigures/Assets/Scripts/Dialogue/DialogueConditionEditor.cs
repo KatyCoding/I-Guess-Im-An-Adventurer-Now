@@ -24,7 +24,7 @@ public class DialogueConditionEditor : Editor
     private List<string> listedPaths = new List<string>();
     private void OnEnable()
     {
-
+        
     }
     
     

@@ -12,6 +12,9 @@ public class AttackDataScriptableObject : ScriptableObject
         charisma,
         NONE,
     }
+
+    public bool IsRangedAttack = false;
+    public BaseProjectile ProjectilePrefab;
     public Damage Damage;
     public AttackModifierType MainStat;
 }

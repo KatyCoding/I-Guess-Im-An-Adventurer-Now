@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: PlayerCombatData
   m_EditorClassIdentifier: 
   AttackAnims:
-  - AttackData: {fileID: 0}
+  - AttackData: {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
     AnimController: {fileID: 9100000, guid: 6d6aab895769c4a4b9bc756458cdd5d8, type: 2}
     parameterIndex: 2
-  Attacks: []
+  - AttackData: {fileID: 11400000, guid: 0a512801edcbb314c9a9b25174e63da9, type: 2}
+    AnimController: {fileID: 9100000, guid: 6d6aab895769c4a4b9bc756458cdd5d8, type: 2}
+    parameterIndex: 3
+  Attacks:
+  - {fileID: 11400000, guid: 547805b3398dd5544a3a0eebbf069495, type: 2}
+  - {fileID: 11400000, guid: 0a512801edcbb314c9a9b25174e63da9, type: 2}
